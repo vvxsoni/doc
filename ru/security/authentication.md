@@ -142,10 +142,11 @@ class CheckAdminRole
 ~~~tabs
 tab: config/moonshine.php
 ```php
-'middleware' => [
-    // ... other middleware
-    \App\Http\Middleware\CheckAdminRole::class,
-],
+//'middleware' => [
+//    // ... other middleware
+//    \App\Http\Middleware\CheckAdminRole::class, // так не работает! надо передавать только один Middleware не как массив
+//],
+'middleware' => \App\Http\Middleware\CheckAdminRole::class, // ВОТ ТАК работает!
 ```
 tab: MoonShineServiceProvider
 ```php
